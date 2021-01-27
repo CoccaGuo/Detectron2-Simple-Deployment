@@ -30,7 +30,6 @@ def _draw_boxes(axis, boxes, labels):
     for i in range(len(boxes)):
         box = boxes[i]
         pos = box.tensor.squeeze(0)
-        print(pos)
         rect=patches.Rectangle((pos[0], pos[1]), pos[2]-pos[0], pos[3]-pos[1], linewidth=1,edgecolor='r',facecolor='none')
         axis.add_patch(rect)
         plt.text(pos[0], pos[1]-2, labels[i], color='mediumvioletred', fontsize=8)
