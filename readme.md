@@ -12,7 +12,9 @@ Install Docker.
  $ git clone https://github.com/CoccaGuo/Detectron2-Simple-Deployment.git
  $ cd Detectron2-Simple-Deployment
  ```
-
+```shell
+$ mkdir engine/output/ app/static/upload/ app/static/result/
+```
 ```shell
 $ docker build -t cocca/co_detect
 ```
@@ -21,7 +23,7 @@ $ docker build -t cocca/co_detect
 $ docker run -d -p 5000:5000 cocca/co_detect
 ```
 
-Open your browser and goto `localhost:5000`.
+Open your browser and goto `localhost:5000`, or labview open client.
 
 ## What's more
-This project may only works with my model. Act with mildly caution.
+This project may only works with this model. Act with mildly caution.
