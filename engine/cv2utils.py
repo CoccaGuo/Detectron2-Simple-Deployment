@@ -21,6 +21,9 @@ def plot_clearly(filepath ,predictions, metadata=None):
     if metadata is None:
             metadata = MetadataCatalog.get("__nonexist__")
     labels = _create_text_labels(classes, scores, metadata.get("thing_classes", None))
+    plt.close()
+    plt.cla()
+    plt.axis('off')
     plt.imshow(imgplt.imread(filepath))
     currentAxis=plt.gca()
     _draw_boxes(currentAxis, boxes, labels)

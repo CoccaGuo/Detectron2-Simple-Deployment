@@ -12,9 +12,8 @@ def predict(img_dir,out_dir ,img):
         im = cv2.imread(file)
         outputs = predictor(im)  
         plot_clearly(file, outputs["instances"].to("cpu"))
-        plt.savefig(os.path.join(out_dir, img))
-        return output_parser(outputs["instances"].to("cpu"))
-        
+        plt.savefig(os.path.join(out_dir, img), bbox_inches = 'tight', pad_inches = 0)
+        return output_parser(outputs["instances"].to("cpu")) 
     except Exception as e:
         print(e)
         return "Error occurs."
