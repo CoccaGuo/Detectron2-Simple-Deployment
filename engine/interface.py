@@ -1,4 +1,4 @@
-import os, cv2
+import os, time, cv2
 from detectron2.engine import DefaultPredictor
 from matplotlib import pyplot as plt
 import numpy as np
@@ -7,6 +7,15 @@ from .cv2utils import plot_clearly
 from .config import config
 
 def predict(img_dir, out_dir, img):
+    upload_dir = os.listdir(img_dir)
+    for pic in upload_dir:
+        if (time.time() - os.path.getctime(os.path.join(img_dir, pic))) > 60:
+            os.remove(os.path.join(img_dir, pic))
+    result_dir = os.listdir(out_dir)
+    for pic in result_dir:
+        if (time.time() - os.path.getctime(os.path.join(out_dir, pic))) > 60:
+            os.remove(os.path.join(out_dir, pic))
+            
     predictor = DefaultPredictor(config())
     try:
         file = os.path.join(img_dir, img)

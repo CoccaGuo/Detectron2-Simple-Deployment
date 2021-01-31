@@ -1,8 +1,8 @@
 import os
 import uuid
 from flask import Flask, render_template, request
-from werkzeug.utils import redirect, secure_filename
-from flask.helpers import send_from_directory, url_for
+from werkzeug.utils import redirect
+from flask.helpers import url_for
 
 from engine.interface import predict
 from app import app
