@@ -1,22 +1,25 @@
 import os, cv2
 from detectron2.engine import DefaultPredictor
 from matplotlib import pyplot as plt
+import numpy as np
 
 from .cv2utils import plot_clearly
 from .config import config
 
-def predict(img_dir,out_dir ,img):
+def predict(img_dir, out_dir, img):
     predictor = DefaultPredictor(config())
     try:
         file = os.path.join(img_dir, img)
         im = cv2.imread(file)
-        outputs = predictor(im)  
+        gray_img = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+        gray_img = gray_img[..., np.newaxis]
+        outputs = predictor(gray_img)  
         plot_clearly(file, outputs["instances"].to("cpu"))
         plt.savefig(os.path.join(out_dir, img), bbox_inches = 'tight', pad_inches = 0)
         return output_parser(outputs["instances"].to("cpu")) 
     except Exception as e:
-        print(e)
-        return "Error occurs."
+        print(e.__str__())
+        return "error"
 
 
 def output_parser(instance):
