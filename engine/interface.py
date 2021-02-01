@@ -31,6 +31,8 @@ def predict(img_dir, out_dir, img):
         outputs = predictor(gray_img)  
         plot_clearly(file, outputs["instances"].to("cpu"))
         plt.savefig(os.path.join(out_dir, img), bbox_inches = 'tight', pad_inches = 0)
+        plt.close()
+        plt.cla()
         return img, output_parser(outputs["instances"].to("cpu"), size) 
     except Exception as e:
         print(e.__str__())
@@ -52,6 +54,8 @@ def output_parser(instance, size):
 
 
 def sxm_converter(file):
+    plt.close()
+    plt.cla()
     sxm_pic = pySPM.SXM(file).get_channel('Current')
     sxm_pic.show(cmap='viridis')
     plt.title(None)
