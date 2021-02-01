@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <h1 class="title">SPM CO Finder v1.0</h1>
+    <h1 class="title">SPM CO Finder v1.1</h1>
     <div class="form">
         <form action="/uploader" method="POST" enctype="multipart/form-data">
-            <p class="form_item">Upload Your Image Here: </p>
+            <p class="form_item">Upload your .sxm(recommended)/.png file: </p>
             <div class="input">
-            <input class="form_btn" type="file" name="img" accept=".jpg,.png"><input class="form_btn" type="submit" />
+            <input class="form_btn" type="file" name="img" accept=".sxm,.jpg,.png"><input class="form_btn" type="submit" />
             </div>
         </form>
     </div>
@@ -26,6 +26,7 @@
     <p><a href="https://github.com/CoccaGuo/sxm-viewer">sxm-viewer</a>: a PyQt5 based tool for inspecting *.sxm files and save them as figures swiftly.</p>
     <p><a href="https://github.com/CoccaGuo/sxm-converter">sxm-converter</a>: a tool aims to convert .sxm files to .png/.jpg(picture) files easily.</p>
     <p>version information:</p>
+    <p>2021.2.1 version 1.1 增加对sxm文件直接上传需求。增加sxm文件通过CO大小过滤掉杂质的代码。</p>
     <p>2021.1.30 version 1.0 重新制作了数据集，识别效果提升明显。</p>
     <p>2021.1.28 version 0.2 增加了Labview客户端和接口。</p>
     <p>2020.12.30 version 0.11 训练2000次，略微改善了识别的效果。</p>

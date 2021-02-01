@@ -23,7 +23,7 @@ def uploader():
         file.save(img_path)
     except IsADirectoryError as e:
         return "No file selected."
-    note = predict(app.config['UPLOAD_FOLDER'], app.config['RESULT_FOLDER'], img)
+    img, note = predict(app.config['UPLOAD_FOLDER'], app.config['RESULT_FOLDER'], img)
     return redirect(url_for('result', img=img, note=note))
 
 
